@@ -1,0 +1,58 @@
+:root {
+}
+
+*{
+    /* box-sizing: border-box; */
+    overflow: hidden;
+}
+
+body {
+    background-color: darkblue;
+}
+
+.paddle{
+    --position: 50;
+    position: absolute;
+    bottom: 0vh;
+    left: calc(var(--position)*1vw);
+    transform: translateX(-50%);
+    width: 10vw;
+    height: 1vh;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px black;
+    cursor: pointer;
+}
+
+.ball{
+    --x: 50;
+    --y: 98;
+    position: absolute;
+    width: 1vh;
+    height: 1vh;
+    border-radius: 50%;
+    background-color: white;
+    left: calc(var(--x)*1vw);
+    top: calc(var(--y)*1vh);
+    transform: translateX(-50%, -50%);
+}
+
+.blocks{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.block{
+    width: 10vw;
+    height: 2vh;
+    border-radius: 5%;
+    background-color: white;
+    border: 1px solid black;
+    /* display: inline-block; */
+}
+span .block {
+    
+}
