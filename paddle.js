@@ -4,7 +4,7 @@ export default class Paddle {
     }
 
     get position(){
-        return parseFloat(this.element).getPropertyValue('--position');
+        return parseFloat(getComputedStyle(this.element).getPropertyValue('--position'));
     }
 
     set position(value){
