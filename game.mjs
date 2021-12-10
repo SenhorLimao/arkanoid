@@ -5,7 +5,7 @@ import Ball from './ball.js';
 import mapgrid from './grids.js';
 let blockgrid = new BlockGrid(document.getElementById('blockgrid'), mapgrid.maps[0]);
 
-let paddle = new Paddle(document.getElementById('paddle'));
+let paddle = new Paddle(document.getElementById('paddle'), 99);
 document.addEventListener('mousemove', e=>{
     paddle.position = (e.x/window.innerWidth)*100;
 })

@@ -1,6 +1,7 @@
 export default class Paddle {
-    constructor(element) {
+    constructor(element, width) {
         this.element = element;
+        this.width = width;
     }
 
     get position(){
@@ -9,6 +10,14 @@ export default class Paddle {
 
     set position(value){
         this.element.style.setProperty('--position', value);
+    }
+
+    get width() {
+        return parseFloat(getComputedStyle(this.element).getPropertyValue('--largura'));
+    }
+
+    set width(value) {
+        this.element.style.setProperty('--largura', value);
     }
 
     rect(){

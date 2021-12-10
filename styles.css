@@ -12,11 +12,12 @@ body {
 
 .paddle{
     --position: 50;
+    --largura: 10;
     position: absolute;
     bottom: 0vh;
     left: calc(var(--position)*1vw);
     transform: translateX(-50%);
-    width: 10vw;
+    width: calc(var(--largura)*1vw);
     height: 1vh;
     background-color: white;
     border-radius: 50%;
@@ -55,4 +56,35 @@ body {
 }
 span .block {
     
+}
+
+.objA{
+    --x: 50;
+    --y: 50;
+    --lccolor: red;
+    --rccolor: blue;
+    --tccolor:green;
+    --bccolor: purple;
+    --nccollor: white;
+    --actualcolor: var(--nccollor);
+    position: absolute;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 2%;
+    background-color: var(--actualcolor);
+    left: calc(var(--x)*1vw);
+    top: calc(var(--y)*1vh);
+    transform: translateX(-50%, -50%);
+}
+.objB{
+    --x: 30;
+    --y: 30;
+    position: absolute;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 10%;
+    background-color: yellow;
+    left: calc(var(--x)*1vw);
+    top: calc(var(--y)*1vh);
+    transform: translateX(-50%, -50%);
 }
