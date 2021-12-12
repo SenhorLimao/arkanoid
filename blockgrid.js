@@ -39,7 +39,8 @@ export default class BlockGrid {
                     let grid = document.createElement('span');
                     grid.setAttribute('id',`block-${i}-${j}`)
                     grid.classList.add('block');
-                    this.blocks[i][j] = new Block(grid,i,j);
+                    grid.style.width=`${100/matrix[i].length}%`
+                    this.blocks[i][j] = new Block(grid,i,j, 100/matrix[i].length);
                     element.appendChild(grid);
                 }
                 else {

@@ -1,10 +1,10 @@
 export default class Block {
-    constructor(element, x, y){
+    constructor(element, x, y, width){
         this.element = element;
         this.x = x;
         this.y = y;
         this.element.style.setProperty('position', `absolute`);
-        this.element.style.setProperty('left', `${y*10}vw`);
+        this.element.style.setProperty('left', `${y*width}vw`);
         this.element.style.setProperty('top', ` ${x*2}vh`);
 
     }

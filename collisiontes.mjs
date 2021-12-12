@@ -6,6 +6,7 @@ let objA = new ObjA(document.getElementById("objA"))
 let objB = new ObjB(document.getElementById("objB"))
 
 
+
 const collided = (a, b) =>{
     if (a.x < b.x + b.width &&
         a.x + a.width > b.x &&
@@ -40,6 +41,7 @@ const getCollisions = (a, b) =>{
 }
 
 const leftCollision = (a, b) =>{
+    console.log((b.y+b.height/2), a.y)
     if(a.x < b.x
         && a.x+a.width>b.x
         && a.x+a.width<b.x+b.width){
@@ -98,3 +100,5 @@ document.addEventListener("keydown", function(event) {
     // }
     console.log("🚀 ~ file: collisiontes.mjs ~ line 9 ~ collision ~ getCollisions", getCollisions(objA.element.getBoundingClientRect(), objB.element.getBoundingClientRect()))
 })
+
+export {collided, getCollisions, leftCollision, rightCollision, topCollision, bottomCollision}

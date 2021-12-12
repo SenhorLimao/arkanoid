@@ -3,7 +3,7 @@ import Paddle from './paddle.js';
 import BlockGrid from './blockgrid.js';
 import Ball from './ball.js';
 import mapgrid from './grids.js';
-let blockgrid = new BlockGrid(document.getElementById('blockgrid'), mapgrid.maps[1]);
+let blockgrid = new BlockGrid(document.getElementById('blockgrid'), mapgrid.maps[0]);
 
 let paddle = new Paddle(document.getElementById('paddle'), 10);
 document.addEventListener('mousemove', e=>{

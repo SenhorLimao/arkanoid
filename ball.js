@@ -1,6 +1,8 @@
 const INITIAL_VEL=0.035
-const SPEED_INCREMENT=0.002
+const SPEED_INCREMENT=0.001
+import {collided, getCollisions, leftCollision, rightCollision, topCollision, bottomCollision } from  './collisiontes.mjs'
 
+// require('./collisiontes.mjs')
 export default class Ball {
     constructor(element){
         this.element = element;
@@ -46,7 +48,7 @@ export default class Ball {
         // this.direction = 1
         // let heading = randomNumberBetween(Math.PI/6, Math.PI*5/6)
         
-        this.heading = Math.PI/4
+        this.heading = Math.PI/3
         let multiplier = Math.random()>0.5?1:-1
         console.log('🚀 ~ file: ball.js ~ line 115 ~ start ~ multiplier', multiplier)
         this.direction = {x: Math.cos(this.heading)*multiplier, y: -Math.sin(this.heading)}
@@ -81,10 +83,12 @@ export default class Ball {
             this.direction.x*=-1
         }
         let tmpBlock = null
+        let tmpBlockRect = null
         if (blocks.some(block => {
             if (block!==null){
                 if(block.rect()){
                     tmpBlock = block
+                    tmpBlockRect = block.rect()
                     return this.isCollision(this.rect(), block.rect())
                 }
             }
@@ -92,9 +96,25 @@ export default class Ball {
             })){
 
                 // this.direction.x*=-1
-                this.direction.y*=-1
+                let collisions = getCollisions(tmpBlockRect, this.rect())
+                if(collisions.indexOf('bottom')>-1){
+                    this.direction.y*=-1
+                }
+                else if(collisions.indexOf('top')>-1){
+                    this.direction.y*=-1
+                }
+                else if(collisions.indexOf('left')>-1){
+                    this.direction.x*=-1
+                } else if(collisions.indexOf('right')>-1){
+                    this.direction.x*=-1
+                }
+                // this.direction.y *= collisions.indexOf("bottom")===-1?1:-1
+                // this.direction.y *= collisions.indexOf("top")===-1?1:-1
+                // this.direction.x *= collisions.indexOf("left")===-1?1:-1
+                // this.direction.x *= collisions.indexOf("right")===-1?1:-1
                 setTimeout(tmpBlock.collided(),250)
                 this.velocity+=SPEED_INCREMENT
+
         }
         if (this.isCollision(this.rect(), paddle.rect())){
             this.direction.y*=-1
@@ -105,6 +125,12 @@ export default class Ball {
             // else{
                 // this.updateDirection((this.x-paddle.position)/20)
             // }
+        }
+
+
+        if (collided(this.rect(), paddle.rect())){
+            console.log('🚀 ~ file: ball.js ~ line 107 ~ update ~ collided', getCollisions(paddle.rect(), this.rect()))
+
         }
 
         if(this.rect().bottom>(window.innerHeight+50)){
