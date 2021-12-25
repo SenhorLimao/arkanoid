@@ -30,7 +30,7 @@ export default class Ball {
 
     initialize(){
         this.x = 50
-        this.y = 98
+        this.y = 96.5
         this.inGame = false
         addEventListener('keydown', (e) => {
             if(e.key === "Enter" && !this.inGame){
@@ -64,8 +64,8 @@ export default class Ball {
         // console.log('--',Math.PI/6)
         // console.log('h+s',this.heading+salt)
         if ((this.heading+salt)<5*Math.PI/12 && (this.heading+salt)>Math.PI/12){
-            this.heading = Math.abs(this.heading+salt)
             let multiplier = (this.direction.x/Math.abs(this.direction.x))
+            this.heading = Math.abs(this.heading+salt*multiplier)
             console.log('🚀 ~ file: ball.js ~ line 115 ~ updateDirection ~ multiplier', multiplier)
             this.direction = {x: Math.cos(this.heading)*multiplier, y: -Math.sin(this.heading)}
         }

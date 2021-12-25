@@ -14,7 +14,7 @@ body {
     --position: 50;
     --largura: 10;
     position: absolute;
-    bottom: 0vh;
+    bottom: 2vh;
     left: calc(var(--position)*1vw);
     transform: translateX(-50%);
     width: calc(var(--largura)*1vw);
@@ -27,7 +27,7 @@ body {
 
 .ball{
     --x: 50;
-    --y: 98;
+    --y: 96;
     position: absolute;
     width: 1vh;
     height: 1vh;
