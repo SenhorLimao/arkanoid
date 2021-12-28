@@ -12,18 +12,14 @@ const collided = (a, b) =>{
         a.x + a.width > b.x &&
         a.y < b.y + b.height &&
         a.height + a.y > b.y) {
-            console.log("🚀 ~ file: collisiontes.mjs ~ line 9 ~ collision ~ collided")
         return true;
     }
     return false;
 }
 
 const getCollisions = (a, b) =>{
-    // console.log("🚀 ~ file: collisiontes.mjs ~ line 9 ~ collision ~ b", b)
-    // console.log("🚀 ~ file: collisiontes.mjs ~ line 9 ~ collision ~ a", a)
     let collisions = []
     if (collided(a,b)) {
-        // return true;
             if (leftCollision(a, b)){
                 collisions.push("left")
             }
@@ -41,7 +37,6 @@ const getCollisions = (a, b) =>{
 }
 
 const leftCollision = (a, b) =>{
-    console.log((b.y+b.height/2), a.y)
     if(a.x < b.x
         && a.x+a.width>b.x
         && a.x+a.width<b.x+b.width){
@@ -53,7 +48,6 @@ const leftCollision = (a, b) =>{
 const rightCollision = (a, b) =>{
     if (b.x < a.x
         && b.x+b.width>a.x){
-        console.log("🚀 ~ file: collisiontes.mjs ~ line 9 ~ collision ~ right")
         return true
     }
     return false
@@ -62,7 +56,6 @@ const rightCollision = (a, b) =>{
 const topCollision = (a, b) =>{
     if (b.y+b.height>a.y
         && b.y < a.y){
-            console.log("🚀 ~ file: collisiontes.mjs ~ line 9 ~ collision ~ top")
             return true
         }
     return false
@@ -71,7 +64,6 @@ const topCollision = (a, b) =>{
 const bottomCollision = (a, b) =>{
     if (a.y+a.height>b.y
         && b.y+b.height>a.y+a.height){
-            console.log("🚀 ~ file: collisiontes.mjs ~ line 9 ~ collision ~ bottom")
             return true
         }
     return false
@@ -91,14 +83,7 @@ document.addEventListener("keydown", function(event) {
     if(event.key=="ArrowDown") {
         objB.y += 1;
     }
-    // if (collided(objA.element.getBoundingClientRect(), objB.element.getBoundingClientRect())) {
-    //     // console.log("collision")
-    //     objA.color = "red"
-    // }
-    // else {
-    //     objA.color = "white"
-    // }
-    console.log("🚀 ~ file: collisiontes.mjs ~ line 9 ~ collision ~ getCollisions", getCollisions(objA.element.getBoundingClientRect(), objB.element.getBoundingClientRect()))
+    
 })
 
 export {collided, getCollisions, leftCollision, rightCollision, topCollision, bottomCollision}

@@ -20,16 +20,22 @@ export default class BlockGrid {
     // }
 
     constructor(element, matrix){
-        console.log(matrix)
         this.blocks = matrix.map(row => row.map(() => 0));
-        console.log(this.blocks);
         this.element = element;
+        this.start(matrix)
+    }
+    
+    
+    start(matrix){
         this.buildGrid(this.element, matrix);
-
     }
 
     getFlattenBlocks(){
         return this.blocks.flat();
+    }
+
+    hasNoChild(){
+        return this.element.children.length == 0;
     }
 
     buildGrid(element, matrix){
@@ -40,8 +46,9 @@ export default class BlockGrid {
                     grid.setAttribute('id',`block-${i}-${j}`)
                     grid.classList.add('block');
                     grid.style.width=`${100/matrix[i].length}%`
-                    this.blocks[i][j] = new Block(grid,i,j, 100/matrix[i].length);
                     element.appendChild(grid);
+                    this.blocks[i][j] = new Block(grid,i,j, 100/matrix[i].length);
+
                 }
                 else {
                     this.blocks[i][j] = null;

@@ -48,14 +48,16 @@ body {
 
 .block{
     /* width: 10vw; */
-    height: 2vh;
+    --altura: 3;
+    --cor: #eeeedd;
+    height:calc(var(--altura)*1vh);
     border-radius: 5%;
-    background-color: white;
+    background-color: var(--cor);
     border: 1px solid black;
     /* display: inline-block; */
 }
 span .block {
-    
+
 }
 
 .objA{
