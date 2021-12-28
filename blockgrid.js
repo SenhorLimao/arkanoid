@@ -47,7 +47,7 @@ export default class BlockGrid {
                     grid.classList.add('block');
                     grid.style.width=`${100/matrix[i].length}%`
                     element.appendChild(grid);
-                    this.blocks[i][j] = new Block(grid,i,j, 100/matrix[i].length);
+                    this.blocks[i][j] = new Block(grid,i,j, 100/matrix[i].length, matrix[i][j]);
 
                 }
                 else {
