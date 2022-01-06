@@ -6,6 +6,7 @@ import {collided, getCollisions, leftCollision, rightCollision, topCollision, bo
 export default class Ball {
     constructor(element){
         this.element = element;
+        this.powerups = []
         this.initialize()
         
     }
@@ -77,11 +78,12 @@ export default class Ball {
         }
         let tmpBlock = null
         let tmpBlockRect = null
+        
         if (blocks.some(block => {
             if (block!==null){
                 if(block.rect()){
                     tmpBlock = block
-                    // tmpBlockRect = block.rect()
+                    tmpBlockRect = block.rect()
                     return this.isCollision(this.rect(), block.rect())
                 }
             }
@@ -101,13 +103,24 @@ export default class Ball {
                 } else if(collisions.indexOf('right')>-1){
                     this.direction.x*=-1
                 }
-                setTimeout(tmpBlock.collided(),250)
+                // setTimeout(tmpBlock.collided(),250)
+                this.powerups.push(tmpBlock.collided(paddle))
                 this.velocity+=SPEED_INCREMENT
 
-        }
+            }
         if (this.isCollision(this.rect(), paddle.rect())){
             this.direction.y*=-1
             this.updateDirection((paddle.position-this.x)/20)
+        }
+        if (this.powerups.length>0){
+            this.powerups.forEach(powerup => {
+                if (powerup) {
+                    if (powerup.done()) this.powerups.splice(this.powerups.indexOf(powerup),1)
+                    powerup.update()
+                    if (powerup.done()) this.powerups.splice(this.powerups.indexOf(powerup),1)
+                }
+                // console.log(powerup)
+            })
         }
 
 

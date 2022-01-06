@@ -1,3 +1,19 @@
 [
-    
+    {
+        "id": "1",
+        "name": "grande"
+    },
+    {
+        "id": "2",
+        "name": "grudar"
+    },
+    {
+        "id": "3",
+        "name": "pequeno"
+    },
+    {
+        "id": "4",
+        "name": "duplicar"
+    }
+
 ]

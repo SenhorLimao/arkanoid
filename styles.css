@@ -99,3 +99,15 @@ span .block {
     position: absolute;
     left: 50vw;
 }
+
+.pwup {
+    --x:0;
+    --y:0;
+    top:calc(var(--y)*1vh);
+    left:calc(var(--x)*1vw);
+    position: absolute;
+    transform: translate(50%, 50%);
+    width: 5vw;
+    height: 2vh;
+    background-color: yellow;
+}

@@ -3,13 +3,12 @@
     {
         "id": "1",
         "color": "#eeeecc",
-        "toughness": "1"
-
+        "toughness": 1
     },
     {
         "id":"2",
         "color": "#5555cc",
-        "toughness": "2"
+        "toughness": 2
     },
     {
         "id":"3",
@@ -21,7 +20,6 @@
         "color": "#eeeecc",
         "toughness": "1",
         "powerup": "2"
-    
     },
     {
         "id": "5",
